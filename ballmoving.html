@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#container{
+			background-color: black;
+			height: 400px;
+			width: 500px;
+			border: 3px solid red;
+			position: relative;
+		}
+		.element{
+			background-color: aqua;
+			position: absolute;
+			height: 50px;
+			width: 50px;
+			border-radius: 20px;
+		}
+	</style>
+	<script src="jquery-3.3.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			var colors=["red","blue","pink","yellow","white","orange"];
+			$("#container").mousemove(function(e){
+			     x=e.pageX; 
+				 y=e.pageY;
+				$("#para").html(x+","+y);
+			});
+			$("#container").click(function(){
+				var createElement=$("<div/>",{class:"element"});
+				createElement.css({backgroundColor:colors[Math.floor(Math.random()*6)]});
+				createElement.appendTo("#container");
+		        $(".element").animate({left:x-30,top:y-30},);
+				});
+		});
+	</script>
+</head>
+<body>
+	<div id="container">
+<!--		<div id="ball"></div>-->
+	</div>
+	<p id="para"></p>
+	<p>When you are clicking new ball should generate. Both existing balls and new ball should come to the clicked place.</p>
+</body>
+</html>
